@@ -1,0 +1,139 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #244071;
+}
+
+button {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+:is(.sidebar, .burger, .logo) {
+  position: fixed;
+}
+
+.sidebar {
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 72px;
+  height: 100%;
+  background: #14274c;
+  transition: 0.4s;
+}
+
+@media (width < 500px) {
+  .sidebar {
+    translate: -100% 0;
+  }
+
+  body.open .sidebar {
+    translate: 0 0;
+  }
+}
+
+.sidebar-header {
+  display: grid;
+  place-items: center;
+  height: 72px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  z-index: 2;
+  top: 18px;
+  left: 52px;
+  width: 38px;
+  scale: 0.8;
+  transition: 0.4s;
+}
+
+@media (width <= 500px) {
+  body.open > .logo {
+    translate: 28px;
+  }
+}
+
+@media (width >= 500px) {
+  .logo {
+    left: 15px;
+    width: 42px;
+  }
+}
+
+.burger {
+  z-index: 2;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  background: url(./assets/icon-burger.svg) no-repeat center;
+}
+
+body.open .burger {
+  background: url(./assets/icon-close.svg) no-repeat center;
+}
+
+@media (width >= 500px) {
+  .burger {
+    display: none;
+  }
+}
+
+.sidebar > nav {
+  display: grid;
+}
+
+.sidebar > nav:not(:last-child) {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #1e3660;
+  margin-bottom: 1rem;
+}
+
+.sidebar > nav > button {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 60px;
+  padding: 0;
+}
+
+@media (width >= 500px) {
+  .sidebar > nav > button:hover > span {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.sidebar > nav > button > img {
+  width: 24px;
+  height: 24px;
+}
+
+.sidebar > nav > button > span {
+  position: absolute;
+  top: 50%;
+  left: 120%;
+  translate: 0 -50%;
+  padding: 10px;
+  border-radius: 4px;
+  color: #f9f9f9;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  visibility: hidden;
+  font-family: "Poppins";
+  font-size: 12px;
+  font-weight: 200;
+  letter-spacing: 2px;
+  line-height: 1;
+  transition: 0.4s;
+}

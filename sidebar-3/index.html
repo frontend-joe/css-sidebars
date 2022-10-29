@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sidebar 3</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <button type="button" class="burger" onclick="toggleSidebar()"></button>
+    <img class="logo" src="assets/logo.svg" />
+    <aside class="sidebar">
+      <header class="sidebar-header"></header>
+      <nav>
+        <button type="button">
+          <img src="./assets/icon-home.svg" />
+          <span>Home</span>
+        </button>
+        <button type="button">
+          <img src="./assets/icon-settings.svg" />
+          <span>Settings</span>
+        </button>
+      </nav>
+      <nav>
+        <button type="button">
+          <img src="./assets/icon-blockchain.svg" />
+          <span>Blockchick</span>
+        </button>
+        <button type="button">
+          <img src="./assets/icon-database.svg" />
+          <span>DataRiver</span>
+        </button>
+        <button type="button">
+          <img src="./assets/icon-speaker.svg" />
+          <span>AudioVibe</span>
+        </button>
+        <button type="button">
+          <img src="./assets/icon-acoustic.svg" />
+          <span>SoundBlast</span>
+        </button>
+      </nav>
+      <nav>
+        <button type="button">
+          <img src="./assets/icon-folders.svg" />
+          <span>Folders</span>
+        </button>
+        <button type="button">
+          <img src="./assets/icon-levels.svg" />
+          <span>Levels</span>
+        </button>
+        <button type="button">
+          <img src="./assets/icon-accounts.svg" />
+          <span>Accounts</span>
+        </button>
+        <button type="button">
+          <img src="./assets/icon-lock.svg" />
+          <span>Security</span>
+        </button>
+      </nav>
+    </aside>
+    <script type="text/javascript">
+      const toggleSidebar = () => document.body.classList.toggle("open");
+    </script>
+  </body>
+</html>
