@@ -1,0 +1,106 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #202124;
+}
+
+button {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.toolbar,
+.sidebar,
+.burger {
+  position: fixed;
+  top: 0;
+}
+
+.toolbar {
+  z-index: 3;
+  left: 0;
+  width: 72px;
+  height: 100%;
+  background: #361d74;
+  transition: 0.4s;
+}
+
+.sidebar {
+  z-index: 2;
+  left: 72px;
+  width: 200px;
+  height: 100%;
+  background: #442496;
+  transition: 0.4s;
+}
+
+@media (width < 500px) {
+  .sidebar {
+    translate: -100% 0;
+  }
+
+  body.open .sidebar {
+    translate: 0 0;
+  }
+}
+
+.burger {
+  z-index: 1;
+  left: 72px;
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 64px;
+  background: url(./assets/icon-burger.svg) no-repeat center;
+}
+
+body.open .burger {
+  left: auto;
+  right: 0;
+  background: url(./assets/icon-close.svg) no-repeat center;
+}
+
+@media (width >= 500px) {
+  .burger {
+    display: none;
+  }
+}
+
+.sidebar > nav {
+  display: grid;
+}
+
+button {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  padding: 0 20px;
+}
+
+button > img {
+  width: 20px;
+  height: 20px;
+}
+
+.toolbar img {
+  width: 28px;
+  height: 28px;
+}
+
+.sidebar > nav > button > span {
+  border-radius: 4px;
+  color: #f9f9f9;
+  font-family: "Poppins";
+  font-size: 12px;
+  font-weight: 200;
+  letter-spacing: 2px;
+  line-height: 1;
+  transition: 0.4s;
+}

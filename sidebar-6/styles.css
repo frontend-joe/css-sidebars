@@ -1,0 +1,169 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #2d2f34;
+}
+
+button {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.sidebar,
+.background,
+.burger {
+  position: fixed;
+}
+
+.background {
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #2267ed;
+  transition: 0.3s;
+}
+
+.sidebar {
+  z-index: 2;
+  top: 0;
+  left: 0;
+  translate: -100% 0;
+  width: 64px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.4s;
+}
+
+@media (width < 500px) {
+  .background {
+    translate: -100% 0;
+  }
+
+  body.open .background {
+    translate: 0 0;
+  }
+
+  body.open .sidebar {
+    translate: 0 0;
+    width: 100%;
+
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@media (width >= 500px) {
+  .background {
+    translate: calc(-100% + 60px);
+  }
+
+  .sidebar {
+    translate: 0 0;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.burger {
+  z-index: 3;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 64px;
+  background-image: url(icon-burger.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+}
+
+body.open .burger {
+  background-image: url(icon-close.svg);
+}
+
+@media (width >= 500px) {
+  .burger {
+    display: none;
+  }
+}
+
+.sidebar button {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  font-size: 20px;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  width: 100%;
+  padding: 0;
+  color: #f9f9f9;
+  transition: background 0.3s;
+}
+
+.sidebar button > i {
+  font-size: 28px;
+}
+
+.sidebar button > img {
+  width: 24px;
+  height: 24px;
+}
+
+.sidebar button > span {
+  position: relative;
+  border-radius: 4px;
+  color: #f9f9f9;
+  font-family: "Poppins";
+  font-weight: 200;
+  letter-spacing: 2px;
+  line-height: 1;
+  opacity: 0;
+  visibility: hidden;
+  transition-property: opacity, visibility;
+  transition-duration: 0.4s;
+}
+
+body.open .sidebar button > span {
+  opacity: 1;
+  visibility: visible;
+}
+
+body.open .sidebar > button {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+@media (width >= 500px) {
+  .sidebar button {
+    display: grid;
+    place-items: center;
+  }
+
+  .sidebar button > span {
+    position: absolute;
+    top: 50%;
+    left: 120%;
+    translate: 0 -50%;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    font-size: 14px;
+  }
+
+  .sidebar button:hover > span {
+    opacity: 1;
+    visibility: visible;
+  }
+}
