@@ -4,166 +4,155 @@
 
 body {
   margin: 0;
-  background: #2d2f34;
-}
-
-button {
-  background: transparent;
-  border: 0;
-  padding: 0;
-  cursor: pointer;
-}
-
-.sidebar,
-.background,
-.burger {
-  position: fixed;
-}
-
-.background {
-  z-index: 1;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #2267ed;
-  transition: 0.3s;
+  background: #fafafa;
+  color: #262626;
+  font-family: BlinkMacSystemFont;
 }
 
 .sidebar {
-  z-index: 2;
+  position: fixed;
   top: 0;
   left: 0;
-  translate: -100% 0;
-  width: 64px;
-  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  justify-content: space-between;
-  opacity: 0;
-  visibility: hidden;
-  transition: 0.4s;
+  align-items: flex-start;
+  width: 250px;
+  height: 100%;
+  padding: 40px 10px 30px 10px;
+  background: #ffffff;
+  border-right: 1px solid #dbdbdb;
+  transition: 0.3s;
 }
 
-@media (width < 500px) {
-  .background {
-    translate: -100% 0;
-  }
-
-  body.open .background {
-    translate: 0 0;
-  }
-
-  body.open .sidebar {
-    translate: 0 0;
-    width: 100%;
-
-    visibility: visible;
-    opacity: 1;
-  }
+.sidebar-header {
+  width: 100%;
+  margin-bottom: 44px;
 }
 
-@media (width >= 500px) {
-  .background {
-    translate: calc(-100% + 60px);
-  }
-
-  .sidebar {
-    translate: 0 0;
-    opacity: 1;
-    visibility: visible;
-  }
+.logo-icon {
+  display: none;
+  font-size: 28px;
+  height: 35px;
+  width: 51px;
+  text-align: center;
 }
 
-.burger {
-  z-index: 3;
-  top: 0;
-  left: 0;
-  display: grid;
-  place-items: center;
-  width: 60px;
-  height: 64px;
-  background-image: url(icon-burger.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 50%;
-}
-
-body.open .burger {
-  background-image: url(icon-close.svg);
-}
-
-@media (width >= 500px) {
-  .burger {
-    display: none;
-  }
+.logo-img {
+  margin-left: 14px;
+  height: 32px;
 }
 
 .sidebar button {
-  position: relative;
-  display: flex;
-  gap: 10px;
-  font-size: 20px;
-  align-items: center;
-  justify-content: center;
   height: 60px;
-  width: 100%;
+  background: transparent;
+  border: 0;
   padding: 0;
-  color: #f9f9f9;
-  transition: background 0.3s;
-}
-
-.sidebar button > i {
-  font-size: 28px;
-}
-
-.sidebar button > img {
-  width: 24px;
-  height: 24px;
+  font-family: inherit;
+  color: inherit;
+  cursor: pointer;
 }
 
 .sidebar button > span {
-  position: relative;
-  border-radius: 4px;
-  color: #f9f9f9;
-  font-family: "Poppins";
-  font-weight: 200;
-  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 48px;
+  padding: 0 12px;
+  border-radius: 24px;
   line-height: 1;
-  opacity: 0;
-  visibility: hidden;
-  transition-property: opacity, visibility;
-  transition-duration: 0.4s;
 }
 
-body.open .sidebar button > span {
-  opacity: 1;
-  visibility: visible;
+.sidebar button:hover > span {
+  background: #f2f2f2;
 }
 
-body.open .sidebar > button {
-  background: rgba(0, 0, 0, 0.1);
+.sidebar button:hover > span :is(i, img) {
+  scale: 1.05;
 }
 
-@media (width >= 500px) {
-  .sidebar button {
-    display: grid;
-    place-items: center;
+.sidebar button > span > span {
+  transition: 0.3s;
+}
+
+@media (width < 580px) {
+  .logo-img {
+    display: none;
+  }
+
+  .logo-icon {
+    display: block;
+  }
+
+  .sidebar {
+    width: 72px;
   }
 
   .sidebar button > span {
-    position: absolute;
-    top: 50%;
-    left: 120%;
-    translate: 0 -50%;
-    padding: 10px;
-    background: rgba(0, 0, 0, 0.7);
-    font-size: 14px;
+    width: 50px;
   }
 
-  .sidebar button:hover > span {
-    opacity: 1;
-    visibility: visible;
+  .sidebar button > span > span {
+    opacity: 0;
+    visibility: hidden;
   }
+}
+
+.sidebar button i {
+  position: relative;
+  font-size: 28px;
+  transition: 0.2s;
+}
+
+.sidebar button img {
+  width: 28px;
+  height: 28px;
+  transition: 0.2s;
+}
+
+.sidebar button i > span {
+  display: grid;
+  place-items: center;
+  height: 20px;
+  padding: 0 4px;
+  border-radius: 10px;
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  border: 1px solid #ffffff;
+  background: #ff2f40;
+  color: #f9f9f9;
+  font-size: 12px;
+  font-family: BlinkMacSystemFont;
+  font-style: normal;
+}
+
+.sidebar button i > em {
+  display: block;
+  height: 10px;
+  width: 10px;
+  border-radius: 10px;
+  position: absolute;
+  top: 2px;
+  right: -1px;
+  border: 1px solid #ffffff;
+  background: #ff2f40;
+  color: #f9f9f9;
+  font-size: 12px;
+  font-family: BlinkMacSystemFont;
+  font-style: normal;
+}
+
+.sidebar button span {
+  font-size: 17px;
+}
+
+.sidebar > nav {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.sidebar > nav button:last-child {
+  margin-top: auto;
 }
