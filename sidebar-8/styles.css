@@ -1,0 +1,174 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #000000;
+  color: #ffffff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Ubuntu, "Helvetica Neue", sans-serif;
+}
+
+.material-symbols-outlined {
+  font-size: 22px;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 250px;
+  height: 100%;
+  padding: 40px 10px 30px 10px;
+  border-right: 1px solid #2f3336;
+}
+
+.sidebar-header {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.logo-img {
+  width: 32px;
+  margin-left: 10px;
+}
+
+.sidebar button {
+  height: 60px;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  font-family: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
+.sidebar button > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  height: 48px;
+  padding: 0 16px 0 12px;
+  border-radius: 24px;
+  line-height: 1;
+}
+
+.sidebar button:hover > span {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.sidebar button i {
+  position: relative;
+  font-size: 28px;
+  transition: 0.2s;
+}
+
+.sidebar button img {
+  width: 32px;
+  height: 32px;
+}
+
+.sidebar button i > span {
+  display: grid;
+  place-items: center;
+  padding: 2px 5px;
+  border-radius: 10px;
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  translate: -50% 0;
+  background: #1d9bf0;
+  color: #f9f9f9;
+  font-size: 10px;
+  font-family: BlinkMacSystemFont;
+  font-style: normal;
+}
+
+.sidebar button span {
+  font-size: 17px;
+}
+
+.sidebar > nav {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.sidebar > nav button:last-child {
+  margin-top: auto;
+}
+
+button.tweet-button {
+  text-align: center;
+}
+
+button.tweet-button > span {
+  background: #1d9bf0;
+  width: 100%;
+  justify-content: center;
+}
+
+button.user-button .fullname {
+  font-size: 15px;
+}
+
+button.user-button .username {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 12px;
+}
+
+button.tweet-button i {
+  display: none;
+}
+
+button.tweet-button span > span {
+  display: block;
+}
+
+button.user-button span {
+  width: 100%;
+}
+
+button.user-button span > span {
+  display: grid;
+  gap: 4px;
+  width: 100%;
+}
+
+button.user-button span > i {
+  font-size: 20px;
+  margin-left: auto;
+}
+
+@media (width < 580px) {
+  .sidebar {
+    width: 72px;
+  }
+
+  .sidebar button > span {
+    width: 50px;
+  }
+
+  .sidebar button > span > span {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  button.tweet-button i {
+    display: inline-flex;
+  }
+
+  button.tweet-button span > span {
+    display: none;
+  }
+
+  button.user-button span > i {
+    display: none;
+  }
+}
